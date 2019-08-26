@@ -2,7 +2,7 @@
 @section('content')
     <h1>Post Page</h1>
 
-    @if(count($posts)> 1)
+    @if(count($posts)> 0)
         <ul class="list-group"></ul>
         @foreach($posts as $post)                               
             <li class="list-group-item">
@@ -12,5 +12,8 @@
                 <small>Writen on {{$post->created_at}}</small>
             </li>
         @endforeach
+        {{$posts->links()}}
+    @else
+        <p>No posts found</p>
     @endif
 @endsection
